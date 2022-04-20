@@ -33,5 +33,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           pwd
-          curl 127.0.0.1
+          curl -Is 127.0.0.1:8200
           echo test, and deploy your project.
