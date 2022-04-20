@@ -33,7 +33,9 @@ jobs:
       - name: Run a multi-line script
         run: |
           pwd
-          docker-compose down
+          docker stop $(docker ps -aq)
+          docker container rm $(docker container ls -aq)
+          docker rmi $(docker images -q)
           docker-compose up -d
           curl -Is 127.0.0.1:8200
           echo test, and deploy your project.
