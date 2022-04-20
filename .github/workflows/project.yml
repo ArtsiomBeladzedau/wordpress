@@ -33,7 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           pwd
-          ls -la
+          docker-compose down
           docker-compose up -d
           curl -Is 127.0.0.1:8200
           echo test, and deploy your project.
