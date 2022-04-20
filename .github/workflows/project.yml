@@ -33,7 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           pwd
-          docker stop $(docker ps -aq)
+          docker compose down
           docker container rm $(docker container ls -aq)
           docker rmi $(docker images -q)
           docker-compose up -d
