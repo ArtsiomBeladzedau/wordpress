@@ -1,7 +1,0 @@
-HTTP/1.1 200 OK
-Date: Wed, 20 Apr 2022 18:02:56 GMT
-Server: Apache/2.4.53 (Debian)
-X-Powered-By: PHP/7.4.29
-Link: <http://127.0.0.1:8200/index.php?rest_route=/>; rel="https://api.w.org/"
-Content-Type: text/html; charset=UTF-8
-
