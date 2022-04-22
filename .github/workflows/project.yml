@@ -30,7 +30,7 @@ jobs:
   
     - name: Create Zip deployment package
       run : |
-           rm *.zip
+           ls -la
            zip -r ${{ env. DEPLOY_PACKAGE_NAME }} ./ -x *.git*
            ls -la
            ping 10.0.2.7
