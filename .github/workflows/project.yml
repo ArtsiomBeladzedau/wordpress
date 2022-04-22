@@ -32,6 +32,7 @@ jobs:
       run : |
            docker-compose up -d
            docker ps -a
+           ip a
   
   my_deploy:
     runs-on: ubuntu-latest
