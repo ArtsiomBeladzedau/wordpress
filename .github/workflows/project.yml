@@ -57,7 +57,7 @@ jobs:
         username: 
              vagrant
         key: ${{ secrets.KEY }}
-        source: ${{ env.DEPLOY_PACKAGE_NAME }}
+        source: "/home/runner/work/wordpress/wordpress/${{ env.DEPLOY_PACKAGE_NAME }}.zip"
         target: "/home/vagrant/wordpress"
 
    # - name: Lets test some packages if they are here 2
