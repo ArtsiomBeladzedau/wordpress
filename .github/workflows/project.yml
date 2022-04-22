@@ -38,11 +38,11 @@ jobs:
       uses: siva1024/scp-deployer@latest
       with:
         host: 
-             10.0.2.7
+             127.0.0.1
         username: 
-             vagrant
-        source: "/home/runner/work/wordpress/wordpress/${{ env.DEPLOY_PACKAGE_NAME }}.zip"
-        target: "/home/vagrant/wordpress"
+             belhard
+        source: ${{ env.DEPLOY_PACKAGE_NAME }}
+        target: "/home/belhard/"
   
   my_cd:
     runs-on: ubuntu-latest
