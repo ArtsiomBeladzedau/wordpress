@@ -28,12 +28,10 @@ jobs:
     - name: Git clone my repo
       uses: actions/checkout@v1   
   
-    - name: List current folder
+    - name: Create Zip deployment package
       run : |
-           docker-compose up -d
-           docker ps -a
-           ip a
-  
+           zip -r ${{ env. DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+           ls -la
   my_cd:
     runs-on: ubuntu-latest
     needs: [my_ci]
