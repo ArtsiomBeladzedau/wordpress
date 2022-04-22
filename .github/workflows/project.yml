@@ -57,6 +57,17 @@ jobs:
     
     - name: Lets test some packages if they are here 1
       run : ls -la
+    
+    - name: scp-deployer
+      uses: siva1024/scp-deployer@latest
+      with:
+        host: 
+             10.0.2.7
+        username: 
+             vagrant
+        key: ${{ secrets.KEY }}
+        source: "${{ env.DEPLOY_PACKAGE_NAME }}"
+        target: "~/home/vagrant/wordpress"
 
-    - name: Lets test some packages if they are here 2
-      run : docker ps -a
+   # - name: Lets test some packages if they are here 2
+   #   run : docker ps -a
