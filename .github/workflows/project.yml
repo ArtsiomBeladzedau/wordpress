@@ -37,4 +37,5 @@ jobs:
           pwd
           docker-compose up -d
           docker ps -a
+          ip a
           echo test, and deploy your project.
