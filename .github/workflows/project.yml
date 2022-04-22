@@ -41,7 +41,7 @@ jobs:
              10.0.2.7
         username: 
              vagrant
-        source: ${{ env.DEPLOY_PACKAGE_NAME }}.zip
+        source: "/home/runner/work/wordpress/wordpress/${{ env.DEPLOY_PACKAGE_NAME }}.zip"
         target: "/home/vagrant/wordpress"
   
   my_cd:
