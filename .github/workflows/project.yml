@@ -23,15 +23,15 @@ jobs:
         echo "Appication name: ${{ env.APPLICATION_NAME }}"
     
     - name: List current folder
-      run : |
-            ls -la
-            docker-compose up -d
+      run : ls- la
    
     - name: Git clone my repo
       uses: actions/checkout@v1   
   
     - name: List current folder
-      run : ls -la
+      run : |
+           ls -la
+           docker-compose up -d
   
   my_deploy:
     runs-on: ubuntu-latest
