@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  my_testing:
+  my_ci:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,9 +34,9 @@ jobs:
            docker ps -a
            ip a
   
-  my_deploy:
+  my_cd:
     runs-on: ubuntu-latest
-    needs: [my_testing]
+    needs: [my_ci]
     env:
       VAR1 : "This is Job Level Variable1"
       VAR2 : "This is Job Level Variable2"
