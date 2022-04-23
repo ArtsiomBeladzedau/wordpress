@@ -36,7 +36,7 @@ jobs:
            scp -r ${{ env. DEPLOY_PACKAGE_NAME }}.zip  belhard@10.0.2.10:/home/belhard/wordpress
         
   my_cd:
-    runs-on: ubuntu-latest
+    runs-on: test
     needs: [my_ci]
 #    if: github == 'refs/heads/master' && github.event_name == 'push' 
     
@@ -54,9 +54,7 @@ jobs:
     - name: Lets test some packages if they are here 1
       run : |
            pwd
-           ls -la
            ssh -p 22 belhard@10.0.2.10
-           ls -la
     
 
    # - name: Lets test some packages if they are here 2
