@@ -37,7 +37,7 @@ jobs:
     - name: Deploy to web server
       uses: horochx/deploy-via-scp@master
           with:
-          local: localPath # eg: dist/*
+          local: ${{ env. DEPLOY_PACKAGE_NAME }}.zip
           remote: ${{ secrets.REMOTE }} # eg: /home/github-action/www
           host: ${{ secrets.HOST }} # eg: example.com
           port: ${{ secrets.PORT }} # eg: 22
