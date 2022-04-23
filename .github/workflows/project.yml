@@ -36,7 +36,7 @@ jobs:
            scp -r ${{ env. DEPLOY_PACKAGE_NAME }}.zip  belhard@10.0.2.10:/home/belhard/wordpress
         
   my_cd:
-    runs-on: ubuntu_latest
+    runs-on: ubuntu-latest
     needs: [my_ci]
 #    if: github == 'refs/heads/master' && github.event_name == 'push' 
     
