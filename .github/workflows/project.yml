@@ -33,7 +33,7 @@ jobs:
            zip -r ${{ env. DEPLOY_PACKAGE_NAME }} ./ -x *.git*
            ls -la
            pwd
-           scp -r ${{ env. DEPLOY_PACKAGE_NAME }}.zip  test@10.0.2.10:/home/belhard/wordpress
+           scp -r ${{ env. DEPLOY_PACKAGE_NAME }}.zip  belhard@10.0.2.10:/home/belhard/wordpress
         
   my_cd:
     runs-on: test
