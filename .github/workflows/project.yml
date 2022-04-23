@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.USER }}
           key : ${{ secrets.KEY }}
           source: "./"
-          target: "~/home/vagrant/wordpress"
+          target: "~/home/belhard/deploy"
         
   my_cd:
     runs-on: ubuntu-latest
