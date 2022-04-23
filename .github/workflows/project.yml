@@ -33,7 +33,7 @@ jobs:
            zip -r ${{ env. DEPLOY_PACKAGE_NAME }} ./ -x *.git*
            ls -la
            pwd
-           scp -r ${{ env. DEPLOY_PACKAGE_NAME }}.zip  vagrant@10.0.2.7:/home/vagrant/wordpress
+           scp -r ${{ env. DEPLOY_PACKAGE_NAME }}.zip  test@10.0.2.10:/home/belhard/wordpress
         
   my_cd:
     runs-on: test
@@ -52,7 +52,10 @@ jobs:
       run : echo "Deploy pakcage name is ${{ env.DEPLOY_PACKAGE_NAME }}"
     
     - name: Lets test some packages if they are here 1
-      run : ls -la
+      run : |
+           ssh -p 22 belhard@10.0.2.10
+           cd /home/belhard/wordpress
+           unzip -l ${{ env. DEPLOY_PACKAGE_NAME }}.zip
     
 
    # - name: Lets test some packages if they are here 2
