@@ -34,13 +34,15 @@ jobs:
            ls -la
            pwd
            
-    - name: Upload Files
-      uses: siva1024/scp-deployer@latest
+    - name: Deploy to web server
+      uses: moonpathbg/scp_uploader@latest
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        source: "docker-compose.yml"
-        target: "~/home/vagrant/wordpress"
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USER }}
+          key : ${{ secrets.KEY }}
+          source: "./"
+          target: "~/home/vagrant/wordpress"
         
   my_cd:
     runs-on: ubuntu-latest
