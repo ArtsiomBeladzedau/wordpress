@@ -55,6 +55,8 @@ jobs:
       run : |
            pwd
            ls -la
+           ssh -p 22 belhard@10.0.2.10
+           ls -la
     
 
    # - name: Lets test some packages if they are here 2
