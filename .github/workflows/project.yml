@@ -39,7 +39,7 @@ jobs:
       with:
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
-          username: ${{ secrets.USER }}
+          username: ${{ secrets.USERNAME }}
           key : ${{ secrets.KEY }}
           source: "./"
           target: "~/home/belhard/deploy"
