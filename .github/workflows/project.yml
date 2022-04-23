@@ -33,14 +33,6 @@ jobs:
            zip -r ${{ env. DEPLOY_PACKAGE_NAME }} ./ -x *.git*
            ls -la
            pwd
-           
-    - name: Upload Files
-      uses: siva1024/scp-deployer@latest
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        source: "docker-compose.yml"
-        target: "~/home/vagrant/wordpress"
         
   my_cd:
     runs-on: test
