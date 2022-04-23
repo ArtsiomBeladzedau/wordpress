@@ -10,7 +10,7 @@ on:
 
 jobs:
   my_ci:
-    runs-on: ubuntu-latest
+    runs-on: test
 
     steps:
     - name: Print Hello Message in Testing
@@ -43,7 +43,7 @@ jobs:
         target: "~/home/vagrant/wordpress"
         
   my_cd:
-    runs-on: ubuntu-latest
+    runs-on: test
     needs: [my_ci]
 #    if: github == 'refs/heads/master' && github.event_name == 'push' 
     
