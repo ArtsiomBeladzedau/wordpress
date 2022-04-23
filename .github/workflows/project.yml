@@ -41,11 +41,14 @@ jobs:
              10.0.2.7
           username: 
              vagrant
+          key : ${{ secrets.KEY }}
           source: "./${{ env.DEPLOY_PACKAGE_NAME }}.zip"
           target: "/home/vagrant/"
   my_cd:
     runs-on: ubuntu-latest
     needs: [my_ci]
+#    if: github == 'refs/heads/master' && github.event_name == 'push' 
+    
     env:
       VAR1 : "This is Job Level Variable1"
       VAR2 : "This is Job Level Variable2"
