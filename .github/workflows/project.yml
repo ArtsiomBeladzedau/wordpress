@@ -34,15 +34,15 @@ jobs:
            ls -la
            pwd
            
-    - name: Deploy to web server
-      uses: horochx/deploy-via-scp@master
-          with:
-          local: ${{ env. DEPLOY_PACKAGE_NAME }}.zip
-          remote: ${{ secrets.REMOTE }} # eg: /home/github-action/www
-          host: ${{ secrets.HOST }} # eg: example.com
-          port: ${{ secrets.PORT }} # eg: 22
-          user: ${{ secrets.USER }} # eg: github-action
-          key: ${{ secrets.KEY }} # eg: -----BEGIN OPENSSH PRIVATE KEY-----\nHEIiyzh5cT7hN.
+    - name: Upload Files
+      uses: siva1024/scp-deployer@latest
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER }}
+        key: ${{ secrets.KEY }}
+        source: "docker-compose.yml"
+        target: "~/home/vagrant/wordpress"
+        
   my_cd:
     runs-on: ubuntu-latest
     needs: [my_ci]
