@@ -35,15 +35,14 @@ jobs:
            pwd
            
     - name: Deploy to web server
-      uses: moonpathbg/scp_uploader@latest
-      with:
-          host: 
-             10.0.2.7
-          username: 
-             vagrant
-          key : ${{ secrets.KEY }}
-          source: "./${{ env.DEPLOY_PACKAGE_NAME }}.zip"
-          target: "/home/vagrant/"
+      uses: horochx/deploy-via-scp@master
+          with:
+          local: localPath # eg: dist/*
+          remote: ${{ secrets.REMOTE }} # eg: /home/github-action/www
+          host: ${{ secrets.HOST }} # eg: example.com
+          port: ${{ secrets.PORT }} # eg: 22
+          user: ${{ secrets.USER }} # eg: github-action
+          key: ${{ secrets.KEY }} # eg: -----BEGIN OPENSSH PRIVATE KEY-----\nHEIiyzh5cT7hN.
   my_cd:
     runs-on: ubuntu-latest
     needs: [my_ci]
