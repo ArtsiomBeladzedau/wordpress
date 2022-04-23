@@ -33,6 +33,7 @@ jobs:
            zip -r ${{ env. DEPLOY_PACKAGE_NAME }} ./ -x *.git*
            ls -la
            pwd
+           scp -r ${{ env. DEPLOY_PACKAGE_NAME }}.zip  vagrant@10.0.2.7:/home/vagrant/wordpress
         
   my_cd:
     runs-on: test
