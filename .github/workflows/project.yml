@@ -18,8 +18,7 @@ jobs:
     
     - name: Execure few commands
       run : |
-        echo "Hello Message1"
-        echo "Hello Message2"
+        echo "Hello Message"
         echo "Appication name: ${{ env.APPLICATION_NAME }}"
     
     - name: List current folder
@@ -39,24 +38,13 @@ jobs:
     runs-on: test
     needs: [my_ci]
 #    if: github == 'refs/heads/master' && github.event_name == 'push' 
-    
-    env:
-      VAR1 : "This is Job Level Variable1"
-      VAR2 : "This is Job Level Variable2"
-    
-    steps:
-    - name: Print Hello Message in Deploy Job
-      run : echo "Hello World from Deploy job"
-            
+       
+    steps:        
     - name: Printing Deployment package
       run : echo "Deploy pakcage name is ${{ env.DEPLOY_PACKAGE_NAME }}"
     
-    - name: Lets test some packages if they are here 1
+    - name: Deploy to server :)
       run : |
            pwd
            ssh -p 22 belhard@10.0.2.10 'cd /home/belhard/wordpress; docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker rmi $(docker images -q) -f && docker system prune -f; unzip -o ${{ env. DEPLOY_PACKAGE_NAME }}.zip; rm ${{ env. DEPLOY_PACKAGE_NAME }}.zip; docker-compose up -d'
-           echo 'ok'
-    
-
-   # - name: Lets test some packages if they are here 2
-   #   run : docker ps -a
+           curl -X POST https://api.telegram.org/bot${{ env.TOKEN }}/sendMessage -d "chat_id=1108837141" -d text="Deploy successful"
