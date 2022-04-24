@@ -45,7 +45,6 @@ jobs:
     
     - name: Deploy to server :)
       run : |
-           echo token=${{ secrets.TOKEN }}
            pwd
-           ssh -p 22 belhard@10.0.2.10 'cd /home/belhard/wordpress; docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker rmi $(docker images -q) -f && docker system prune -f; unzip -o ${{ env. DEPLOY_PACKAGE_NAME }}.zip; rm ${{ env. DEPLOY_PACKAGE_NAME }}.zip; docker-compose up -d'
+           ssh -p 22 belhard@10.0.2.10 'cd /home/belhard/wordpress; docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker rmi $(docker images -q) -f && docker system prune -f; unzip -o ${{ env. DEPLOY_PACKAGE_NAME }}.zip; rm ${{ env. DEPLOY_PACKAGE_NAME }}.zip; docker-compose up -d; curl -Is http://127.0.0.1:8200/test1.html'
            curl -X POST https://api.telegram.org/bot${{ secrets.TOKEN }}/sendMessage -d "chat_id=1108837141" -d text="Deploy successful"
