@@ -55,7 +55,7 @@ jobs:
       run : |
            pwd
            ssh -p 22 belhard@10.0.2.10
-           cd /home/belhard/wordpress
+           pwd
            ls -la
     
 
