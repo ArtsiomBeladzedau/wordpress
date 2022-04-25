@@ -52,7 +52,6 @@ jobs:
       if: ${{ failure() }}
       run: |
          echo "last job failed"
-         git config --global user.email "you@example.com" && git config --global user.name "ArtsiomBeladzedau" && git revert HEAD
          curl -X POST https://api.telegram.org/bot${{ secrets.TOKEN }}/sendMessage -d "chat_id=1108837141" -d text="Deploy unsuccessful"
            
   my_notification:
@@ -63,4 +62,5 @@ jobs:
       - name: Deploy notification
         run : curl -X POST https://api.telegram.org/bot${{ secrets.TOKEN }}/sendMessage -d "chat_id=1108837141" -d text="Deploy successful"
 
+# git config --global user.email "you@example.com" && git config --global user.name "ArtsiomBeladzedau" && git revert HEAD
 
