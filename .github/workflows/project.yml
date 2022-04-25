@@ -46,7 +46,8 @@ jobs:
     - name: Deploy to server :)
       run : |
            pwd
-           ssh -p 22 belhard@10.0.2.10 'cd /home/belhard/wordpress; docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker rmi $(docker images -q) -f && docker system prune -f; unzip -o ${{ env. DEPLOY_PACKAGE_NAME }}.zip; rm ${{ env. DEPLOY_PACKAGE_NAME }}.zip; docker-compose up -d; sleep 30; curl -Is http://127.0.0.1:8200/test1.html'
+           ssh -p 22 belhard@10.0.2.10 'cd /home/belhard/wordpress; docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker rmi $(docker images -q) -f && docker system prune -f; unzip -o ${{ env. DEPLOY_PACKAGE_NAME }}.zip; rm ${{ env. DEPLOY_PACKAGE_NAME }}.zip'
+           ssh -p 22 belhard@10.0.2.10 'bash -s' deploy.sh
            
     - name: Step To run on failure
       if: ${{ failure() }}
